@@ -1,7 +1,5 @@
 package app;
 
-import boardgame.Board;
-import boardgame.Position;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -24,6 +22,9 @@ public class Program {
                 System.out.print("Source: ");
                 ChessPosition source = UI.readChessPosition(leitor);
 
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
                 System.out.println();
                 System.out.print("Target: ");
                 ChessPosition target = UI.readChessPosition(leitor);
